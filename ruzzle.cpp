@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
 	if (argc < 2) {
 		std::cout << "Please provide the dictionary file as argument.\n";
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	// ifstream dic ("/usr/share/dict/words");
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	std::ifstream dic (dicFilename);
 	if (!dic.is_open()) {
 		std::cout << "Couldn't open the dictionary file.\n";
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	int gridSize = Game::gSize;
@@ -59,4 +59,6 @@ int main(int argc, char **argv)
 	}
 
 	std::cout << "computed in " << double(end - starts) / CLOCKS_PER_SEC << '\n';
+	
+	return EXIT_SUCCESS;
 }
